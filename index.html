@@ -1,0 +1,37 @@
+<html>
+
+<head>
+</head>
+<script type="text/javascript" src="index.js"></script>
+<link rel="stylesheet" href="assets/styles/style.css">
+
+<body onload="draw();">
+    <div class="container-programs">
+        <!-- music -->
+        <audio src="assets/sounds/introduction-to-programming_game-over.mp3" id="gameover"></audio>
+        <audio src="assets/sounds/Level_Up_Sound_Effect.mp3" id="levelUp"></audio>
+        <audio src="assets/sounds/Eat_Apple.mp3" id="eatApple"></audio>
+
+        <!-- assets -->
+        <img src="assets/images/Red_apple.png" alt="apple" id="iconApple" hidden>
+        <img src="assets/images/heart.png" alt="heart" id="lifes" hidden>
+        <img src="assets/images/head-top-down.png" alt="heart" id="headTopDown" hidden>
+        <img src="assets/images/head-left-right.png" alt="heart" id="headLeftRight" hidden>
+        <img src="assets/images/body-snake.png" alt="heart" id="bodySnake" hidden>
+
+        <canvas id="snakeBoard" width="500" height="500" style="border:1px solid #000000;"></canvas>
+        <h1>Snake Game Level <span id="leveling">1</span></h1>
+        <h2>Score</h2>
+        <canvas id="score1Board" width="50" height="50" style="border:1px solid #000000;"></canvas>
+    </div>
+
+    <h2>Control</h2>
+    <div class="container-cotrol">
+        <h1>&uarr;</h1>
+        <h1>&#8595;</h1>
+        <h1>&#8594;</h1>
+        <h1>&#8592;</h1>
+    </div>
+</body>
+
+</html>
