@@ -9,7 +9,7 @@ const DIRECTION = {
     UP: 2,
     DOWN: 3,
 }
-var MOVE_INTERVAL = [150, 120, 100, 80, 60];
+var MOVE_INTERVAL = [300, 250, 200, 150, 120, 100];
 var currentLevel = 0;
 
 function initPosition() {
@@ -60,6 +60,7 @@ let positionObstcale = [
     { x: 3, y: Math.floor(HEIGHT * 3 / 4) },//posisi lvl 4
     { x: Math.floor(WIDTH * 1 / 5), y: 3 },//posisi lvl 5
     { x: Math.floor(WIDTH * 4 / 5), y: 3 },//posisi lvl 5
+    { x: Math.floor(WIDTH * 1 / 2), y: 3 },//posisi lvl 6
 ];
 
 function drawHorizontal(ctx, x, y, width, height) {
@@ -218,7 +219,8 @@ function checkCollision(snakes) {
         }
         if (currentLevel == 4) {
             if (((snakes[i].head.y >= positionObstcale[3].y) && (snakes[i].head.y <= (positionObstcale[3].y + 19)) && (snakes[i].head.x == positionObstcale[3].x)) ||
-                ((snakes[i].head.y >= positionObstcale[4].y) && (snakes[i].head.y <= (positionObstcale[4].y + 19)) && (snakes[i].head.x == positionObstcale[4].x))) {
+                ((snakes[i].head.y >= positionObstcale[4].y) && (snakes[i].head.y <= (positionObstcale[4].y + 19)) && (snakes[i].head.x == positionObstcale[4].x)) ||
+                ((snakes[i].head.y >= positionObstcale[5].y) && (snakes[i].head.y <= (positionObstcale[5].y + 19)) && (snakes[i].head.x == positionObstcale[5].x))) {
                 isCollide = true;
             }
 
@@ -321,7 +323,7 @@ function checkLevel(snake, ctx) {
             levelUp = false;
         }
 
-    } else {
+    } else if(lastScore + snake.score <= 25){
         //level 5
         textLevel.textContent = "5";
         drawHorizontal(ctx, positionObstcale[3].x, positionObstcale[3].y, 1, 20);
@@ -331,8 +333,18 @@ function checkLevel(snake, ctx) {
             document.getElementById("levelUp").play();
             levelUp = true;
         }
+    } else{
+        //level 6
+        textLevel.textContent = "6";
+        drawHorizontal(ctx, positionObstcale[3].x, positionObstcale[3].y, 1, 20);
+        drawHorizontal(ctx, positionObstcale[4].x, positionObstcale[4].y, 1, 20);
+        drawHorizontal(ctx, positionObstcale[5].x, positionObstcale[5].y, 1, 20);
+        currentLevel = 4;
+        if (!levelUp) {
+            document.getElementById("levelUp").play();
+            levelUp = true;
+        }
     }
-
 }
 
 
