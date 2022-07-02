@@ -9,7 +9,7 @@ const DIRECTION = {
     UP: 2,
     DOWN: 3,
 }
-var MOVE_INTERVAL = [150, 110, 80, 50, 30];
+var MOVE_INTERVAL = [150, 120, 100, 80, 60];
 var currentLevel = 0;
 
 function initPosition() {
